@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+    user-select: none;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    background-color: #e9ebf6;
+}
+.container{
+    height: 75vh;
+    width: 25vw;
+    background: url(static/background.jpg) no-repeat center center fixed; 
+         background-size: cover;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    box-shadow: 0 5px 20px #7f868f;
+    border-radius: 8px;
+}
+form{
+    height: 75vh;
+    width: 30vw;
+    display: grid;
+    place-content: center;
+    place-items: center;
+}
+form h1{
+    margin-top: -15px;
+    text-align: center;
+}
+input{
+    outline: none;
+    border: none;
+    margin: 10px 0;
+    height: 30px;
+    font-size: 18px;
+    padding: 15px;
+    width: 22.5vw;
+    box-shadow: 0 2px 5px #b6bebb;
+}
+
+label{
+    font-size: 20px;
+}
+
+textarea{
+    padding: 15px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    width: 22.5vw;
+    box-shadow: 0 2px 5px #abbdb5;
+}
+.button{
+    text-align: center;
+
+}
+.button1{
+    font-size: 22px;
+    font-weight: 650;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px #718494;
+    padding: 10px;
+    color: white;
+    background: #000;
+    width:100px;
+    text-align: center;
+    height:50px;
+    border-radius: 5px;
+}
+
+span{
+    color: red;
+}
+h5{
+    margin-top: 20px;
+    color: #d900ff;
+}
+    </style>
+</head>
+<body>
+    {% if status:%}
+    <script>alert('Your mails are sent');</script>
+    {%endif%}
+    <div class="container">
+        <form action="/send" method="POST"  enctype="multipart/form-data" class="form">
+            <h1>Enter Details</h1>
+            <div class="email">
+                <label for="email">E-mail: <span>*</span></label><br>
+                <input type="email" name="email" id="email" placeholder="E-mail" required>
+            </div>
+            <div class="website">
+                <label for="website">Password:<span>*</span></label><br>
+                <input type="password" name="password" id="password" placeholder="Password." required>
+            </div>
+            <div class="subject">
+                <label for="subject">Subject: <span>*</span></label><br>
+                <input type="text" name="subject" id="subject" placeholder="Subject" required>
+            </div>
+            <div class="message">
+                <label for="message">Message</label><br>
+                <textarea name="message" id="message" cols="35" rows="5" placeholder="Describe Your Message Here...."></textarea>
+            </div>
+            <input type="submit" value="SEND" class="button1">
+           
+        </form>
+    </div>
+</body>
+</html>

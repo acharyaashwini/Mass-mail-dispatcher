@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pure
+        {
+            float:left;
+            overflow: scroll;
+            height:80vh;
+            width:40vw;
+            padding:23px 0 0 30px;
+            margin:20px 0 0 80px;
+            
+        }
+        .impure
+        {
+            overflow: scroll;
+            height:83vh;
+            width:40vw;
+            padding:33px 0 0 30px;
+            margin-top: 40px;
+        }
+        
+        #button{
+           margin:3% 0 0 43%;
+           width: 10vw;
+           height: 5vh;
+           font-family: 'Playfair Display', serif;
+            background:#32de84;
+            border-style:none;
+            color: white;
+            box-shadow: 0 2px 0 0 #498C25;
+	        cursor: pointer;
+	        transition: all .2s ease-in-out;
+	        border-radius: 4px;
+            font-size: 17px;
+        }
+    </style>
+</head>
+<body>
+        <form action="/sendmail" method="POST" enctype="multipart/form-data" class="f2">
+            <input type="submit" value="SEND MAIL" id="button">
+        </form> 
+    <div class="list">
+        <div class="pure">
+            <h1>VALID MAIL ID'S</h1>
+            {% if pure %}
+            {% for m in pure: %}
+            <p>{{m}}</p>
+             {% endfor %}
+             {% endif %}
+        </div>
+        <div class="impure">
+            <h1>INVALID MAIL ID'S</h1>
+            {% if impure %}
+            {% for m in impure: %}
+            <p>{{m}}</p>
+             {% endfor %}
+             {% endif %}
+
+            </p></div>
+            
+    </div>
+    
+    
+
+   
+</body>
+</html>
